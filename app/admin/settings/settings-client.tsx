@@ -20,7 +20,7 @@ const defaultSettings = {
   general: { siteName: "", tagline: "", description: "" },
   seo: { metaTitle: "", metaDescription: "", keywords: "" },
   appearance: { primaryHex: "#000000", accentHex: "#6366f1", darkMode: false },
-  notifications: { newUserNotification: false, eventRegistrationNotification: false, newsletterSubscription: false, systemAlerts: false },
+  notifications: { newUserNotification: false, eventRegistrationNotification: false, newsletterSubscription: false, systemAlerts: false, newDonationNotification: false },
   maintenance: { isEnabled: false, message: "" },
   home_content: { heroTitle: "", heroSubtitle: "", aboutSectionText: "", missionStatement: "", visionStatement: "", footerDescription: "" }
 }
@@ -423,6 +423,16 @@ export default function SettingsClient() {
                 <Switch 
                   checked={settings.notifications.systemAlerts}
                   onCheckedChange={(val) => updateSetting("notifications", "systemAlerts", val)}
+                />
+              </div>
+              <div className="flex items-center justify-between p-4 bg-card hover:bg-muted/50 transition-colors">
+                <div className="space-y-1">
+                  <Label className="text-base font-medium">New Donations</Label>
+                  <p className="text-sm text-muted-foreground">Receive an email when a new monetary donation pledge is natively submitted.</p>
+                </div>
+                <Switch 
+                  checked={settings.notifications.newDonationNotification}
+                  onCheckedChange={(val) => updateSetting("notifications", "newDonationNotification", val)}
                 />
               </div>
             </CardContent>

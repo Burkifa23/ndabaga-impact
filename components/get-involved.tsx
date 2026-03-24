@@ -19,6 +19,7 @@ export default function GetInvolved() {
         "Flexible time commitments",
       ],
       cta: "Become a Mentor",
+      href: "/volunteer",
     },
     {
       icon: Heart,
@@ -31,6 +32,7 @@ export default function GetInvolved() {
         "Remote opportunities available",
       ],
       cta: "Start Volunteering",
+      href: "/volunteer",
     },
     {
       icon: DollarSign,
@@ -43,6 +45,7 @@ export default function GetInvolved() {
         "Tax-deductible contributions",
       ],
       cta: "Make a Donation",
+      href: "/donate",
     },
   ]
 
@@ -87,7 +90,7 @@ export default function GetInvolved() {
                   asChild
                   className="w-full bg-black hover:bg-gray-800 text-white group-hover:shadow-lg transition-all duration-300"
                 >
-                  <Link href="/volunteer">
+                  <Link href={pathway.href}>
                     {pathway.cta}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

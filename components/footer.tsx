@@ -30,6 +30,10 @@ export default async function Footer() {
       { name: "FAQ", href: "/faq" },
       { name: "Contact Us", href: "/#contact" },
       {
+        name: "Donate",
+        href: "/donate",
+      },
+      {
         name: "Volunteer with Us",
         href: "/volunteer",
       },
