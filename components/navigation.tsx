@@ -85,13 +85,9 @@ export default function Navigation() {
               </Link>
             ))}
             <Button asChild className="bg-black hover:bg-gray-800 text-white">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/volunteer">
                 Join Our Movement
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -123,13 +119,9 @@ export default function Navigation() {
               ))}
               <div className="px-3 py-2">
                 <Button asChild className="w-full bg-black hover:bg-gray-800 text-white">
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="/volunteer">
                     Join Our Movement
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

@@ -30,9 +30,8 @@ export default async function Footer() {
       { name: "FAQ", href: "/faq" },
       { name: "Contact Us", href: "/#contact" },
       {
-        name: "Partner with Us",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform",
-        external: true,
+        name: "Volunteer with Us",
+        href: "/volunteer",
       },
     ],
   }

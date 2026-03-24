@@ -49,14 +49,10 @@ export default function Hero({
               size="lg"
               className="bg-white text-black hover:bg-gray-100 transition-all duration-300 group"
             >
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/volunteer">
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Join Our Movement
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

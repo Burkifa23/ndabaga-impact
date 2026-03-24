@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Heart, DollarSign, ArrowRight, CheckCircle } from "lucide-react"
@@ -85,14 +87,10 @@ export default function GetInvolved() {
                   asChild
                   className="w-full bg-black hover:bg-gray-800 text-white group-hover:shadow-lg transition-all duration-300"
                 >
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="/volunteer">
                     {pathway.cta}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </Button>
               </CardContent>
 
@@ -112,13 +110,9 @@ export default function GetInvolved() {
             </p>
             <div className="flex justify-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 transition-colors">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScewR9RO88g8hZgW5qagKW_gRPTk0EUj3OOWpjVlVjYwz6EBw/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="/volunteer">
                   Join Our Community
-                </a>
+                </Link>
               </Button>
             </div>
           </CardContent>
