@@ -1,10 +1,17 @@
-"use client"
-
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
 import Image from "next/image"
+import { createClient } from "@/lib/supabase/server"
 
-export default function Footer() {
+export default async function Footer() {
+  const supabase = createClient()
+  const { data } = await supabase
+    .from('site_settings')
+    .select('home_content')
+    .limit(1)
+    .single()
+
+  const description = data?.home_content?.footerDescription || "Empowering Rwandan youth through digital skills, mentorship, and community-centered innovation for sustainable development."
   const footerLinks = {
     "About Us": [
       { name: "Home", href: "/" },
@@ -55,9 +62,8 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-gray-300 leading-relaxed">
-              Empowering Rwandan youth through digital skills, mentorship, and community-centered innovation for
-              sustainable development.
+            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+              {description}
             </p>
           </div>
 

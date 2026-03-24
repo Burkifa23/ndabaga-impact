@@ -1,9 +1,17 @@
-"use client"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, Target, Heart, Leaf, Lightbulb } from "lucide-react"
 
-export default function About() {
+interface AboutProps {
+  aboutText?: string
+  mission?: string
+  vision?: string
+}
+
+export default function About({
+  aboutText = "We are a Rwandan youth-led organization dedicated to empowering young people with digital skills, mentorship, and community-centered innovation.",
+  mission = "Empowering youth with transformative skills, networks, and opportunities that enable them to drive sustainable change in their communities and shape a resilient future for Rwanda and beyond.",
+  vision = "A future where every young person has the opportunity, capacity, and confidence to create positive, lasting impact in their communities and beyond."
+}: AboutProps) {
   const beliefs = [
     {
       icon: Users,
@@ -38,9 +46,8 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Ndabaga Impact</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We are a Rwandan youth-led organization dedicated to empowering young people with digital skills,
-            mentorship, and community-centered innovation.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
+            {aboutText}
           </p>
         </div>
 
@@ -64,9 +71,8 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h3>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              A future where every young person has the opportunity, capacity, and confidence to create positive,
-              lasting impact in their communities and beyond.
+            <p className="text-lg text-gray-600 leading-relaxed mb-6 whitespace-pre-line">
+              {vision}
             </p>
 
             {/* Motto */}
@@ -75,9 +81,8 @@ export default function About() {
             </div>
 
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Empowering youth with transformative skills, networks, and opportunities that enable them to drive
-              sustainable change in their communities and shape a resilient future for Rwanda and beyond.
+            <p className="text-lg text-gray-600 leading-relaxed whitespace-pre-line">
+              {mission}
             </p>
           </div>
           <div className="relative">

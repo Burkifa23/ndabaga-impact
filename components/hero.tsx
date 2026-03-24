@@ -1,10 +1,16 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
 
-export default function Hero() {
+interface HeroProps {
+  title?: string
+  subtitle?: string
+}
+
+export default function Hero({ 
+  title = "Empowering Youth,", 
+  subtitle = "Creating Sustainable Impact" 
+}: HeroProps) {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* YouTube Video Background */}
@@ -23,7 +29,7 @@ export default function Hero() {
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 mt-20">
         <div className="space-y-6 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Empowering Youth, <span className="text-gray-300">Creating Sustainable Impact</span>
+            {title} <span className="text-gray-300">{subtitle}</span>
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
