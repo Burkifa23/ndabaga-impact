@@ -3,17 +3,18 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { createClient } from "@/lib/supabase/server"
 
-export default async function Projects() {
-  const supabase = createClient()
-  
-  const { data: dbProjects } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('is_featured', true)
-    .order('created_at', { ascending: false })
-    .limit(6)
+interface ProjectsProps {
+  projects?: any[]
+  title?: string
+  subtitle?: string
+}
+
+export default function Projects({ 
+  projects: dbProjects = [], 
+  title = "Featured Projects", 
+  subtitle = "Discover the innovative initiatives that are transforming communities and empowering youth across Rwanda." 
+}: ProjectsProps) {
 
   // Use DB featured projects if they exist, otherwise use fallback data to avoid empty screen
   const projects = dbProjects && dbProjects.length > 0 ? dbProjects : [
@@ -47,9 +48,9 @@ export default async function Projects() {
     <section id="projects" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the innovative initiatives that are transforming communities and empowering youth across Rwanda.
+            {subtitle}
           </p>
         </div>
 

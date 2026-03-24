@@ -1,0 +1,30 @@
+$ next build
+  Γû▓ Next.js 14.2.16
+  - Environments: .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./lib/supabase/server.ts
+Error: 
+  x You're importing a component that needs next/headers. That only works in a Server Component which is not supported in the pages/ directory. Read more: https://nextjs.org/docs/getting-started/
+  | react-essentials#server-components
+  | 
+  | 
+   ,-[C:\Users\kwize\OneDrive\Documents\GitHub\ndabaga-impact\lib\supabase\server.ts:1:1]
+ 1 | import { createServerClient, type CookieOptions } from '@supabase/ssr'
+ 2 | import { cookies } from 'next/headers'
+   : ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 3 | 
+ 4 | export function createClient() {
+ 5 |   const cookieStore = cookies()
+   `----
+
+Import trace for requested module:
+./lib/supabase/server.ts
+./components/footer.tsx
+./components/global-layout-wrapper.tsx
+
+
+> Build failed because of webpack errors
+error: script "build" exited with code 1

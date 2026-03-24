@@ -22,7 +22,7 @@ const defaultSettings = {
   appearance: { primaryHex: "#000000", accentHex: "#6366f1", darkMode: false },
   notifications: { newUserNotification: false, eventRegistrationNotification: false, newsletterSubscription: false, systemAlerts: false, newDonationNotification: false },
   maintenance: { isEnabled: false, message: "" },
-  home_content: { heroTitle: "", heroSubtitle: "", aboutSectionText: "", missionStatement: "", visionStatement: "", footerDescription: "" }
+  home_content: { heroTitle: "", heroSubtitle: "", featuredProjectsTitle: "", featuredProjectsSubtitle: "", aboutSectionText: "", missionStatement: "", visionStatement: "", footerDescription: "" }
 }
 
 export default function SettingsClient() {
@@ -327,6 +327,27 @@ export default function SettingsClient() {
                   id="heroSubtitle" 
                   value={settings.home_content.heroSubtitle} 
                   onChange={(e) => updateSetting("home_content", "heroSubtitle", e.target.value)}
+                  className="max-w-2xl min-h-[80px]"
+                />
+              </div>
+              
+              <Separator className="max-w-2xl" />
+
+              <div className="grid gap-3">
+                <Label htmlFor="featuredProjectsTitle">Featured Projects Title</Label>
+                <Input 
+                  id="featuredProjectsTitle" 
+                  value={settings.home_content.featuredProjectsTitle || ""} 
+                  onChange={(e) => updateSetting("home_content", "featuredProjectsTitle", e.target.value)}
+                  className="max-w-xl font-medium"
+                />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="featuredProjectsSubtitle">Featured Projects Subtitle</Label>
+                <Textarea 
+                  id="featuredProjectsSubtitle" 
+                  value={settings.home_content.featuredProjectsSubtitle || ""} 
+                  onChange={(e) => updateSetting("home_content", "featuredProjectsSubtitle", e.target.value)}
                   className="max-w-2xl min-h-[80px]"
                 />
               </div>

@@ -81,11 +81,10 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         {/* Content Body */}
         <div className="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
           {project.content ? (
-            <div className="prose prose-lg prose-gray max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-black">
-              {/* Note: since content can be raw text natively passed, we map specific line breaks to <p> dynamically ensuring readability */}
+            <div className="prose dark:prose-invert max-w-none">
               {project.content.split('\n').map((paragraph: string, idx: number) => {
                 if (!paragraph.trim()) return null
-                return <p key={idx} className="mb-6 last:mb-0 text-gray-700 leading-relaxed">{paragraph}</p>
+                return <p key={idx}>{paragraph}</p>
               })}
             </div>
           ) : (

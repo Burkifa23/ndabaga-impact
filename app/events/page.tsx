@@ -1,23 +1,10 @@
-import { Metadata } from "next"
-import EventsPageClient from "./events-client"
-
-export const metadata: Metadata = {
-  title: "Events & Programs | Ndabaga Impact",
-  description: "Discover our upcoming camps, bootcamps, and workshops. Join us in making a sustainable impact.",
-}
-
-export default function EventsPage() {
+export default function Events() {
   return (
-    <main className="min-h-screen py-12 md:py-20">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Events & Programs</h1>
-          <p className="text-lg text-muted-foreground">
-            Explore our initiatives designed to empower youth, build essential skills, and foster community innovation. Register your interest to join our upcoming sessions.
-          </p>
-        </div>
-        <EventsPageClient />
+    <div className="min-h-screen py-24 bg-gray-50 flex items-center justify-center">
+      <div className="max-w-3xl mx-auto text-center px-4">
+        <h1 className="text-4xl font-bold mb-4">Upcoming Events</h1>
+        <p className="text-lg text-gray-600">Check back soon for our latest community events!</p>
       </div>
-    </main>
+    </div>
   )
 }

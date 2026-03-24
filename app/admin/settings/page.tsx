@@ -1,21 +1,14 @@
-import { Metadata } from "next"
 import SettingsClient from "./settings-client"
 
-export const metadata: Metadata = {
-  title: "Admin Settings | Ndabaga Impact",
-  description: "Manage global platform preferences, SEO, appearance, and maintenance.",
-}
-
-export default function SettingsPage() {
+export default function AdminSettingsPage() {
   return (
-    <main className="min-h-screen bg-muted/40 py-8">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight">Settings</h1>
-          <p className="text-muted-foreground mt-1">Manage global platform preferences, SEO, appearance, and maintenance.</p>
-        </div>
-        <SettingsClient />
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Settings Manager</h1>
+        <p className="text-gray-500">Configure global platform details, visuals, and messaging.</p>
       </div>
-    </main>
+      
+      <SettingsClient />
+    </div>
   )
 }

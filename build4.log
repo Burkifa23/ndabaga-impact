@@ -1,0 +1,42 @@
+$ next build
+  Γû▓ Next.js 14.2.16
+  - Environments: .env
+
+   Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ Γ£ô Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/14) ...
+   Generating static pages (3/14) 
+   Generating static pages (6/14) 
+   Generating static pages (10/14) 
+ Γ£ô Generating static pages (14/14)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+Γöî ╞Æ /                                    5.63 kB         113 kB
+Γö£ ╞Æ /_not-found                          873 B          88.1 kB
+Γö£ ╞Æ /admin/projects                      10 kB           240 kB
+Γö£ ╞Æ /admin/settings                      8.51 kB         176 kB
+Γö£ ╞Æ /blog                                151 B          87.3 kB
+Γö£ ╞Æ /donate                              5.56 kB         180 kB
+Γö£ ╞Æ /events                              153 B          87.3 kB
+Γö£ ╞Æ /gallery                             153 B          87.3 kB
+Γö£ ╞Æ /privacy                             153 B          87.3 kB
+Γö£ ╞Æ /projects                            188 B          99.2 kB
+Γö£ ╞Æ /projects/[slug]                     188 B          99.2 kB
+Γö£ ╞Æ /terms                               151 B          87.3 kB
+Γöö ╞Æ /volunteer                           13.1 kB         188 kB
++ First Load JS shared by all            87.2 kB
+  Γö£ chunks/148-48e02ae58bc6eaba.js       31.6 kB
+  Γö£ chunks/7afb7826-b7a2577534ff651a.js  53.6 kB
+  Γöö other shared chunks (total)          1.96 kB
+
+
+╞Æ  (Dynamic)  server-rendered on demand
+

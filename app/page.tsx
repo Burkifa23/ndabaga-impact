@@ -16,6 +16,14 @@ export default async function HomePage() {
 
   const homeContent = data?.home_content || {}
 
+  // Consolidate specific project data dynamically over homepage mounts preventing disjointed component loading times
+  const { data: dbProjects } = await supabase
+    .from('projects')
+    .select('*')
+    .eq('is_featured', true)
+    .order('created_at', { ascending: false })
+    .limit(6)
+
   return (
     <main className="min-h-screen">
       <Hero 
@@ -28,7 +36,11 @@ export default async function HomePage() {
         vision={homeContent.visionStatement} 
       />
       <StrategicPillars />
-      <Projects />
+      <Projects 
+        projects={dbProjects || []} 
+        title={homeContent.featuredProjectsTitle || "Featured Projects"}
+        subtitle={homeContent.featuredProjectsSubtitle || "Discover the innovative initiatives that are transforming communities and empowering youth across Rwanda."}
+      />
       <Impact />
       <Contact />
     </main>

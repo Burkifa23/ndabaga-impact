@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import GlobalLayoutWrapper from "@/components/global-layout-wrapper"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
@@ -69,9 +70,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ScrollToTop />
-        <Navigation />
-        {children}
-        <Footer />
+        <GlobalLayoutWrapper
+          header={<Navigation />}
+          footer={<Footer />}
+        >
+          {children}
+        </GlobalLayoutWrapper>
         <Toaster />
       </body>
     </html>
