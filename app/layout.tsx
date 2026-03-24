@@ -53,6 +53,8 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+import { Toaster } from "@/components/ui/sonner"
+
 export default function RootLayout({
   children,
 }: {
@@ -70,6 +72,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   )
