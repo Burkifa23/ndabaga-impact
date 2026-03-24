@@ -20,10 +20,10 @@ export default async function Footer() {
       { name: "Careers", href: "#" },
     ],
     Programs: [
-      { name: "Digital Skills", href: "#" },
-      { name: "Leadership", href: "#" },
-      { name: "Agriculture", href: "#" },
-      { name: "Entrepreneurship", href: "#" },
+      { name: "Digital Skills", href: "/projects" },
+      { name: "Leadership", href: "/projects" },
+      { name: "Agriculture", href: "/projects" },
+      { name: "Entrepreneurship", href: "/projects" },
     ],
     Support: [
       { name: "Success Stories", href: "/#alumni-testimonials" },

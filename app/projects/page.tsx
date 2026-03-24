@@ -1,21 +1,19 @@
+import { createClient } from "@/lib/supabase/server"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { createClient } from "@/lib/supabase/server"
 
-export default async function Projects() {
+export default async function AllProjectsPage() {
   const supabase = createClient()
   
   const { data: dbProjects } = await supabase
     .from('projects')
     .select('*')
-    .eq('is_featured', true)
     .order('created_at', { ascending: false })
-    .limit(6)
 
-  // Use DB featured projects if they exist, otherwise use fallback data to avoid empty screen
+  // Use DB projects if they exist, otherwise fallback
   const projects = dbProjects && dbProjects.length > 0 ? dbProjects : [
     {
       title: "Inkingi Project",
@@ -44,12 +42,19 @@ export default async function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <div className="min-h-screen pt-32 pb-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the innovative initiatives that are transforming communities and empowering youth across Rwanda.
+        
+        <div className="mb-12">
+          <Button asChild variant="ghost" className="mb-6 -ml-4 text-gray-500 hover:text-black hover:bg-transparent">
+            <Link href="/">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Home
+            </Link>
+          </Button>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Explore Our Impact</h1>
+          <p className="text-xl text-gray-600 max-w-3xl">
+            A comprehensive catalog of every initiative, platform, and community movement driven by NDABAGA Impact.
           </p>
         </div>
 
@@ -57,9 +62,9 @@ export default async function Projects() {
           {projects.map((project: any, index: number) => (
             <Card
               key={project.title}
-              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 bg-white border-0 hover:scale-105"
+              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 bg-white border-0 hover:scale-105 flex flex-col"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden shrink-0">
                 <Image
                   src={project.image_url || "/placeholder.svg"}
                   alt={project.title}
@@ -104,16 +109,7 @@ export default async function Projects() {
             </Card>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="bg-black hover:bg-gray-800 text-white rounded-full px-8 shadow-lg hover:shadow-xl transition-all">
-            <Link href="/projects">
-              View All Projects
-              <ExternalLink className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
       </div>
-    </section>
+    </div>
   )
 }
