@@ -2,10 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import GlobalLayoutWrapper from "@/components/global-layout-wrapper"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import ScrollToTop from "@/components/scroll-to-top"
 import { createClient } from "@/lib/supabase/server"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -94,13 +90,7 @@ export default async function RootLayout({
         <meta name="theme-color" content="#000000" />
       </head>
       <body className={inter.className}>
-        <ScrollToTop />
-        <GlobalLayoutWrapper
-          header={<Navigation />}
-          footer={<Footer />}
-        >
-          {children}
-        </GlobalLayoutWrapper>
+        {children}
         <Toaster />
       </body>
     </html>
