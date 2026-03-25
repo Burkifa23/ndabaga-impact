@@ -27,8 +27,8 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen">
       <Hero 
-        title={homeContent.heroTitle} 
-        subtitle={homeContent.heroSubtitle} 
+        title={homeContent.heroTitle || "Empowering Youth,"} 
+        subtitle={homeContent.heroSubtitle || "Creating Sustainable Impact"} 
       />
       <About 
         aboutText={homeContent.aboutSectionText} 
