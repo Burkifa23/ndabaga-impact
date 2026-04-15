@@ -1,6 +1,7 @@
 "use client"
 
-import { useFormState, useFormStatus } from "react-dom"
+import { useState } from "react"
+import { useFormStatus } from "react-dom"
 import { signIn, type AuthState } from "@/app/actions/auth"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -33,7 +34,12 @@ function SubmitButton() {
 }
 
 export default function AdminLoginPage() {
-  const [state, formAction] = useFormState(signIn, initialState)
+  const [state, setState] = useState<AuthState>(initialState)
+
+  async function formAction(formData: FormData) {
+    const result = await signIn(state, formData)
+    if (result) setState(result)
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">

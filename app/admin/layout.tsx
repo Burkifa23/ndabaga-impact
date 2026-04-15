@@ -2,16 +2,17 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign } from "lucide-react"
+import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign, Users } from "lucide-react"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   const navItems = [
-    { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-    { name: "Donations", href: "/admin/donations", icon: DollarSign },
-    { name: "Projects", href: "/admin/projects", icon: FolderOpen },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
+    { name: "Dashboard",  href: "/admin/dashboard",  icon: LayoutDashboard },
+    { name: "Donations",  href: "/admin/donations",  icon: DollarSign },
+    { name: "Volunteers", href: "/admin/volunteers", icon: Users },
+    { name: "Projects",   href: "/admin/projects",   icon: FolderOpen },
+    { name: "Settings",   href: "/admin/settings",   icon: Settings },
   ]
   
   return (
