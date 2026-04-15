@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useFormStatus } from "react-dom"
-import { signIn, type AuthState } from "@/app/actions/auth"
+import { signIn } from "@/app/actions/auth"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -11,34 +10,17 @@ import { Loader2, ArrowLeft, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-const initialState: AuthState = {}
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <Button
-      type="submit"
-      className="w-full h-11 bg-black hover:bg-gray-800 text-white font-medium mt-2"
-      disabled={pending}
-    >
-      {pending ? (
-        <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Signing in...
-        </>
-      ) : (
-        "Sign In"
-      )}
-    </Button>
-  )
-}
-
 export default function AdminLoginPage() {
-  const [state, setState] = useState<AuthState>(initialState)
+  const [error, setError]       = useState<string | null>(null)
+  const [isPending, setIsPending] = useState(false)
 
-  async function formAction(formData: FormData) {
-    const result = await signIn(state, formData)
-    if (result) setState(result)
+  async function handleAction(formData: FormData) {
+    setError(null)
+    setIsPending(true)
+    const result = await signIn({}, formData)
+    // signIn calls redirect() on success — if we get here, it returned an error
+    setIsPending(false)
+    if (result?.error) setError(result.error)
   }
 
   return (
@@ -56,7 +38,6 @@ export default function AdminLoginPage() {
 
       <Card className="w-full max-w-sm shadow-lg border-0">
         <CardHeader className="text-center pb-6">
-          {/* Logo */}
           <div className="flex justify-center mb-5">
             <div className="h-10 relative">
               <Image
@@ -71,7 +52,9 @@ export default function AdminLoginPage() {
           </div>
           <div className="flex items-center justify-center gap-2 mb-1">
             <ShieldCheck className="h-4 w-4 text-gray-400" />
-            <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">Admin Portal</span>
+            <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+              Admin Portal
+            </span>
           </div>
           <CardTitle className="text-2xl font-bold text-gray-900">Sign In</CardTitle>
           <CardDescription className="text-gray-500">
@@ -80,7 +63,7 @@ export default function AdminLoginPage() {
         </CardHeader>
 
         <CardContent>
-          <form action={formAction} className="space-y-4">
+          <form action={handleAction} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium text-gray-700">
                 Email Address
@@ -111,14 +94,26 @@ export default function AdminLoginPage() {
               />
             </div>
 
-            {/* Error Message */}
-            {state?.error && (
+            {error && (
               <div className="bg-red-50 border border-red-200 rounded-md px-4 py-3">
-                <p className="text-sm text-red-600 font-medium">{state.error}</p>
+                <p className="text-sm text-red-600 font-medium">{error}</p>
               </div>
             )}
 
-            <SubmitButton />
+            <Button
+              type="submit"
+              disabled={isPending}
+              className="w-full h-11 bg-black hover:bg-gray-800 text-white font-medium mt-2"
+            >
+              {isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Signing in...
+                </>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
           </form>
         </CardContent>
       </Card>
