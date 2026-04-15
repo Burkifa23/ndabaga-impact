@@ -48,13 +48,14 @@ export default function Navigation() {
     { name: "Gallery", href: "/gallery" },
     { name: "Testimonials", href: "/#testimonials" },
     { name: "Contact", href: "/#contact" },
+    { name: "Blog", href: "/blog" },
+    { name: "Events", href: "/events" }
   ]
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        shouldUseWhiteBackground ? "bg-white/90 backdrop-blur-md border-b border-gray-200" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${shouldUseWhiteBackground ? "bg-white/90 backdrop-blur-md border-b border-gray-200" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -77,9 +78,8 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(item.href, e)}
-                className={`transition-colors duration-200 font-medium ${
-                  shouldUseBlackLogo ? "text-gray-900 hover:text-black" : "text-white hover:text-gray-300"
-                }`}
+                className={`transition-colors duration-200 font-medium ${shouldUseBlackLogo ? "text-gray-900 hover:text-black" : "text-white hover:text-gray-300"
+                  }`}
               >
                 {item.name}
               </Link>
