@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign, Users } from "lucide-react"
+import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign, Users, FileText } from "lucide-react"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -12,6 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: "Donations",  href: "/admin/donations",  icon: DollarSign },
     { name: "Volunteers", href: "/admin/volunteers", icon: Users },
     { name: "Projects",   href: "/admin/projects",   icon: FolderOpen },
+    { name: "Blog",       href: "/admin/blog",       icon: FileText },
     { name: "Settings",   href: "/admin/settings",   icon: Settings },
   ]
   
