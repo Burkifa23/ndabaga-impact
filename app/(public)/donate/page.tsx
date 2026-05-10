@@ -20,7 +20,7 @@ const PRESETS = [10, 25, 50, 100]
 export default function DonatePage() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [selectedPreset, setSelectedPreset] = useState<number | "custom">(50)
-  
+
   const form = useForm<DonateFormValues>({
     resolver: zodResolver(donateSchema),
     defaultValues: {
@@ -53,7 +53,7 @@ export default function DonatePage() {
 
   const handleCustomClick = () => {
     setSelectedPreset("custom")
-    form.setValue("amount", 0) 
+    form.setValue("amount", 0)
   }
 
   if (isSuccess) {
@@ -66,7 +66,7 @@ export default function DonatePage() {
             <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto">
               Your commitment empowers Rwandan youth. Please complete your donation using the details below:
             </p>
-            
+
             <div className="bg-gray-100 p-6 rounded-lg w-full mb-8 text-left shadow-inner border border-gray-200">
               {selectedMethod === "Bank Transfer" ? (
                 <div className="space-y-3">
@@ -74,9 +74,13 @@ export default function DonatePage() {
                     <Landmark className="mr-2 h-6 w-6" /> Bank Transfer Details
                   </h3>
                   <p><span className="text-gray-500 font-medium w-32 inline-block">Bank Name:</span> <span className="font-semibold text-gray-900">Bank of Kigali (BK)</span></p>
-                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account Name:</span> <span className="font-semibold text-gray-900">NDABAGA Impact</span></p>
-                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account No:</span> <span className="font-semibold text-gray-900 tracking-wider">000123456789</span></p>
-                  <p><span className="text-gray-500 font-medium w-32 inline-block">Swift Code:</span> <span className="font-semibold text-gray-900">BKRWRWRW</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account Name:</span> <span className="font-semibold text-gray-900">NDABAGA IMPACT LTD.</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account No:</span> <span className="font-semibold text-gray-900 tracking-wider">00293-07759045-80</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Swift Code:</span> <span className="font-semibold text-gray-900">BKIGRWRW</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Bank Name:</span> <span className="font-semibold text-gray-900">EQUITY BANK RWANDA PLC. RWANDA.</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account Name:</span> <span className="font-semibold text-gray-900">NDABAGA IMPACT LTD.</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Account No:</span> <span className="font-semibold text-gray-900 tracking-wider">40032000997312</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Swift Code:</span> <span className="font-semibold text-gray-900">CITIUS33</span></p>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -85,7 +89,7 @@ export default function DonatePage() {
                   </h3>
                   <p><span className="text-gray-500 font-medium w-32 inline-block">Provider:</span> <span className="font-semibold text-gray-900">MTN Mobile Money</span></p>
                   <p><span className="text-gray-500 font-medium w-32 inline-block">Merchant/Code:</span> <span className="font-semibold text-gray-900">NDABAGA Impact</span></p>
-                  <p><span className="text-gray-500 font-medium w-32 inline-block">Dial Code:</span> <span className="font-bold text-gray-900 tracking-wider bg-yellow-300 px-2 py-1 rounded">*182*8*1*123456#</span></p>
+                  <p><span className="text-gray-500 font-medium w-32 inline-block">Dial Code:</span> <span className="font-bold text-gray-900 tracking-wider bg-yellow-300 px-2 py-1 rounded"> *182*8*1*107250#</span></p>
                 </div>
               )}
             </div>
@@ -95,7 +99,7 @@ export default function DonatePage() {
             </Button>
           </CardContent>
         </Card>
-      </main>
+      </main >
     )
   }
 
@@ -120,7 +124,7 @@ export default function DonatePage() {
         <CardContent className="pt-6 p-8 md:p-10">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              
+
               {/* Amount Selection */}
               <div className="space-y-4">
                 <FormLabel className="text-base font-semibold text-gray-900 block">Select Amount</FormLabel>
@@ -130,9 +134,8 @@ export default function DonatePage() {
                       key={amount}
                       type="button"
                       variant={selectedPreset === amount ? "default" : "outline"}
-                      className={`h-14 text-lg font-bold transition-all ${
-                        selectedPreset === amount ? "bg-black text-white ring-2 ring-black ring-offset-2 scale-105" : "hover:border-black text-gray-600"
-                      }`}
+                      className={`h-14 text-lg font-bold transition-all ${selectedPreset === amount ? "bg-black text-white ring-2 ring-black ring-offset-2 scale-105" : "hover:border-black text-gray-600"
+                        }`}
                       onClick={() => handlePresetClick(amount)}
                     >
                       ${amount}
@@ -141,9 +144,8 @@ export default function DonatePage() {
                   <Button
                     type="button"
                     variant={selectedPreset === "custom" ? "default" : "outline"}
-                    className={`h-14 text-lg font-bold sm:col-span-1 col-span-2 transition-all ${
-                      selectedPreset === "custom" ? "bg-black text-white ring-2 ring-black ring-offset-2 scale-105" : "hover:border-black text-gray-600"
-                    }`}
+                    className={`h-14 text-lg font-bold sm:col-span-1 col-span-2 transition-all ${selectedPreset === "custom" ? "bg-black text-white ring-2 ring-black ring-offset-2 scale-105" : "hover:border-black text-gray-600"
+                      }`}
                     onClick={handleCustomClick}
                   >
                     Custom
@@ -158,11 +160,11 @@ export default function DonatePage() {
                     <FormControl>
                       <div className="relative">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">$</span>
-                        <Input 
-                          type="number" 
-                          placeholder="100.00" 
-                          className="pl-8 text-lg font-bold h-14" 
-                          {...field} 
+                        <Input
+                          type="number"
+                          placeholder="100.00"
+                          className="pl-8 text-lg font-bold h-14"
+                          {...field}
                           onChange={(e) => field.onChange(parseFloat(e.target.value))}
                           value={field.value || ""}
                         />
