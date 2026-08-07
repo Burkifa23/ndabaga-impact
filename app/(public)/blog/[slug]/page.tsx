@@ -17,7 +17,7 @@ export default async function BlogArticlePage({ params }: { params: { slug: stri
     .eq("status", "published")
     .single()
 
-  if (!post) notFound()
+  if (!post) return notFound()
 
   return (
     <div className="min-h-screen bg-white">
