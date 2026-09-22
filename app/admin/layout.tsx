@@ -2,16 +2,19 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign, Users, FileText, Mail } from "lucide-react"
+import { LayoutDashboard, Settings, FolderOpen, LogOut, DollarSign, Users, FileText, Mail, Calendar, Image as ImageIcon } from "lucide-react"
+import { signOutAction } from "@/app/actions/auth"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
   const navItems = [
-    { name: "Dashboard",  href: "/admin/dashboard",  icon: LayoutDashboard },
+    { name: "Dashboard",  href: "/admin",  icon: LayoutDashboard },
     { name: "Donations",  href: "/admin/donations",  icon: DollarSign },
     { name: "Volunteers", href: "/admin/volunteers", icon: Users },
     { name: "Projects",   href: "/admin/projects",   icon: FolderOpen },
+    { name: "Events",     href: "/admin/events",     icon: Calendar },
+    { name: "Gallery",    href: "/admin/gallery",    icon: ImageIcon },
     { name: "Blog",       href: "/admin/blog",       icon: FileText },
     { name: "Messages",  href: "/admin/messages",   icon: Mail },
     { name: "Settings",   href: "/admin/settings",   icon: Settings },
@@ -49,13 +52,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </nav>
         
         <div className="p-4 border-t bg-gray-50/50">
-          <Link 
-            href="/" 
-            className="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 hover:text-red-700 rounded-lg transition-colors font-medium"
-          >
-            <LogOut className="h-5 w-5" />
-            <span>Exit System</span>
-          </Link>
+          <form action={signOutAction}>
+            <button 
+              type="submit"
+              className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 hover:text-red-700 rounded-lg transition-colors font-medium"
+            >
+              <LogOut className="h-5 w-5" />
+              <span>Exit System</span>
+            </button>
+          </form>
         </div>
       </div>
       

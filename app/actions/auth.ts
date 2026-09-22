@@ -27,3 +27,9 @@ export async function signIn(
 
   redirect("/admin/settings")
 }
+
+export async function signOutAction() {
+  const supabase = createClient()
+  await supabase.auth.signOut()
+  redirect("/")
+}

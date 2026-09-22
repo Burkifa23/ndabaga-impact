@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft } from "lucide-react"
 import { format } from "date-fns"
+import ReactMarkdown from "react-markdown"
 
 export default async function BlogArticlePage({ params }: { params: { slug: string } }) {
   const supabase = createClient()
@@ -64,9 +65,7 @@ export default async function BlogArticlePage({ params }: { params: { slug: stri
         )}
 
         <div className="prose dark:prose-invert max-w-none prose-lg prose-headings:font-bold prose-p:leading-relaxed">
-          {post.content.split("\n\n").map((paragraph: string, i: number) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+          <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
       </div>
     </div>
