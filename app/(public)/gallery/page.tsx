@@ -1,5 +1,11 @@
 import { createClient } from "@/lib/supabase/server"
-import Image from "next/image"
+import { Metadata } from "next"
+import GalleryClient from "./gallery-client"
+
+export const metadata: Metadata = {
+  title: "Impact Gallery | Ndabaga Impact",
+  description: "A visual history of the projects, events, and community moments that define Ndabaga Impact.",
+}
 
 type GalleryImage = {
   id: string | number
@@ -32,43 +38,7 @@ export default async function GalleryPage() {
           </p>
         </div>
 
-        {items.length === 0 ? (
-          <div className="py-24 text-center">
-            <p className="text-lg text-gray-500">
-              No images yet. Check back soon!
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {items.map((img) => (
-              <div
-                key={img.id}
-                className="group relative aspect-square overflow-hidden rounded-xl bg-gray-200 shadow-sm"
-              >
-                <Image
-                  src={img.image_url}
-                  alt={img.title ?? "Gallery image"}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/55 transition-colors duration-300" />
-                <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {img.title && (
-                    <p className="text-white font-semibold text-sm leading-snug">
-                      {img.title}
-                    </p>
-                  )}
-                  {img.category && (
-                    <span className="mt-1 inline-block text-xs text-white/70 font-medium">
-                      {img.category}
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        <GalleryClient items={items} />
       </div>
     </div>
   )

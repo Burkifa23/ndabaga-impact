@@ -10,25 +10,39 @@ export default function Impact() {
 
   const testimonials = [
     {
-      name: "Marie Uwimana",
-      role: "Agriculture Program Graduate",
+      name: "Olive Mukeshimana",
+      role: "Participant",
       content:
-        "Through Ndabaga Impact, I learned modern farming techniques that doubled my harvest. Now I train other young farmers in my community.",
-      avatar: "/placeholder.svg?height=80&width=80&text=MU",
+        "Ndabaga Impact taught me the importance of Mushrooms. I didn't know the importance of Mushrooms now I know the use of it and how healthy it is for my life.",
+      avatar: "/placeholder.svg?height=80&width=80&text=OM",
     },
     {
-      name: "Jean Baptiste Niyonzima",
-      role: "Digital Skills Graduate",
+      name: "Fabrice Rukundo",
+      role: "Participant",
       content:
-        "The remote skills lab gave me the web development skills I needed. I now run my own tech startup and employ 5 other young people.",
-      avatar: "/placeholder.svg?height=80&width=80&text=JN",
+        "Ndabaga is a good family that helps the youth with their projects for example how to farm. They taught us about how to grow Mushrooms and I use that knowledge in my daily life.",
+      avatar: "/placeholder.svg?height=80&width=80&text=FR",
     },
     {
-      name: "Grace Mukamana",
-      role: "Leadership Program Alumni",
+      name: "Byukusenge Emmerance",
+      role: "Participant",
       content:
-        "The leadership training transformed how I approach community challenges. I'm now leading a youth cooperative with 30 members.",
-      avatar: "/placeholder.svg?height=80&width=80&text=GM",
+        "It's an organisation that helped us know how we could start a business by sharing different ideas. To this day it still helps us.",
+      avatar: "/placeholder.svg?height=80&width=80&text=BE",
+    },
+    {
+      name: "Muhorakeye Gisèle",
+      role: "Participant",
+      content:
+        "They gave us the right lessons about Nature we got clarity about it and we loved it. The Teacher helped with giving us different exercise to make sure we get the lessons. Ndabaga Impact played their part, the rest is ours.",
+      avatar: "/placeholder.svg?height=80&width=80&text=MG",
+    },
+    {
+      name: "Ishimwe Jean Claude",
+      role: "Participant",
+      content:
+        "The first thing I liked about Ndabaga Impact is how they trained the youth with different skills. That has great value for the country and the youth. Also the way they took care of us treating us equally making sure no one is left out. Now I am student and I am glad to have the basics that help me with school.",
+      avatar: "/placeholder.svg?height=80&width=80&text=IJ",
     },
   ]
 

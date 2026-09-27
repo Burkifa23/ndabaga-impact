@@ -16,8 +16,8 @@ export default async function Footer() {
     "About Us": [
       { name: "Home", href: "/" },
       { name: "Mission & Vision", href: "/#about" },
-      { name: "Team", href: "#" },
-      { name: "Careers", href: "#" },
+      { name: "Team", href: "/team" },
+      { name: "Careers", href: "/careers" },
     ],
     Programs: [
       { name: "Digital Skills", href: "/projects" },
@@ -41,11 +41,10 @@ export default async function Footer() {
   }
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "https://www.facebook.com/p/Ndabaga-Impact-100069150824010/", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com/NdabagaImpact", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/ndabaga_impact/", label: "Instagram" },
+    { icon: Youtube, href: "http://www.youtube.com/@ndabagaimpactrwanda8524", label: "YouTube" },
   ]
 
   return (

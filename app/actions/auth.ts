@@ -25,7 +25,7 @@ export async function signIn(
     return { error: error.message }
   }
 
-  redirect("/admin/settings")
+  redirect("/admin")
 }
 
 export async function signOutAction() {

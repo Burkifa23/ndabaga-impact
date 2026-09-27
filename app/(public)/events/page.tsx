@@ -1,5 +1,11 @@
 import { createClient } from "@/lib/supabase/server"
 import EventsPageClient from "./events-client"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Events | Ndabaga Impact",
+  description: "Upcoming and past events hosted by Ndabaga Impact.",
+}
 
 export default async function EventsPage() {
   const supabase = createClient()

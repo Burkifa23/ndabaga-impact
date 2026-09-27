@@ -4,6 +4,7 @@ import { useState } from "react"
 import { toast } from "sonner"
 import { CalendarIcon, MapPinIcon, UsersIcon } from "lucide-react"
 import Image from "next/image"
+import { registerForEvent } from "@/app/actions/register-event"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -56,12 +57,27 @@ function formatDate(dateStr: string | null) {
 export default function EventsPageClient({ events }: { events: Event[] }) {
   const [openDialogId, setOpenDialogId] = useState<string | number | null>(null)
 
-  const handleRegister = (e: React.FormEvent, eventId: string | number) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>, eventId: string | number) => {
     e.preventDefault()
-    toast.success("Successfully registered your interest!", {
-      description: "We'll be in touch with more details soon.",
-    })
-    setOpenDialogId(null)
+    setIsSubmitting(true)
+    
+    const formData = new FormData(e.currentTarget)
+    const result = await registerForEvent(eventId, formData)
+    
+    setIsSubmitting(false)
+    
+    if (result.success) {
+      toast.success("Successfully registered your interest!", {
+        description: "We'll be in touch with more details soon.",
+      })
+      setOpenDialogId(null)
+    } else {
+      toast.error("Registration failed", {
+        description: result.error,
+      })
+    }
   }
 
   const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
@@ -180,6 +196,7 @@ export default function EventsPageClient({ events }: { events: Event[] }) {
                           <Label htmlFor={`name-${event.id}`}>Full Name</Label>
                           <Input
                             id={`name-${event.id}`}
+                            name="name"
                             required
                             placeholder="Enter your full name"
                           />
@@ -190,13 +207,14 @@ export default function EventsPageClient({ events }: { events: Event[] }) {
                           </Label>
                           <Input
                             id={`email-${event.id}`}
+                            name="email"
                             type="email"
                             required
                             placeholder="Enter your email"
                           />
                         </div>
-                        <Button type="submit" className="w-full mt-4">
-                          Submit Registration
+                        <Button type="submit" disabled={isSubmitting} className="w-full mt-4">
+                          {isSubmitting ? "Submitting..." : "Submit Registration"}
                         </Button>
                       </form>
                     </DialogContent>

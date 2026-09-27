@@ -5,6 +5,12 @@ import Projects from "@/components/projects"
 import Impact from "@/components/impact"
 import Contact from "@/components/contact"
 import { createClient } from "@/lib/supabase/server"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Ndabaga Impact | Empowering Youth in Rwanda",
+  description: "A Rwandan youth-led organization focused on empowering young people through digital skills, agriculture, and leadership programs.",
+}
 
 export default async function HomePage() {
   const supabase = createClient()
